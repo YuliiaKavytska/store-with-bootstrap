@@ -36,11 +36,12 @@
     </form>
 	 
 	<div class="my-lg-0 ml-4">
-	<a class="no-text-decoreation grey-link" href="#"></a>
-	<img src="img/basket.png" class=" ml-1" alt="..." style="width:32px;">
-	<div class="cart-item">
-		<span class="display-6">Basket</span>
-	</div>
+		<a class="no-text-decoration grey-link" href="#">
+			<img src="img/basket.png" class=" ml-1" alt="..." style="width:32px;">
+			<div class="cart-item">
+				<span class="display-6">Basket</span>
+			</div>
+		</a>
 	</div>
 
   </div>
