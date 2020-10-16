@@ -25,7 +25,14 @@ $page = "add";
                         <div class="col-md-2 px-1">
                             <div class="form-group">
                                 <label>Category of product</label>
-                                <input type="text" class="form-control" name="cloth-category" placeholder="1">
+                                <!-- <input type="text" class="form-control" name="cloth-category" placeholder="1"> -->
+                                <select name="cloth-category" class="form-control" id="exampleFormControlSelect1">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                </select>
                             </div>
                         </div>
                         <div class="col-md-5 pl-1">

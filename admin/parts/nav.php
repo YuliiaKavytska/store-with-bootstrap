@@ -18,7 +18,7 @@
 		</a>
 	</li>
 	<li <?php if($page == "catigories"){ echo "class='nav-item active'"; }?>>
-		<a class="nav-link" href="./typography.html">
+		<a class="nav-link" href="/admin/category.php">
 				<i class="nc-icon nc-palette"></i>
 				<p>Catigories</p>
 		</a>
