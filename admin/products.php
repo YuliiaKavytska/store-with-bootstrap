@@ -74,7 +74,7 @@ $page = "products";
                                             <th>Category</th>
                                             <th>Options</th>
                                         </thead>
-                                        <tbody>
+                                        <tbody id="table-body">
 														 <?php
 															 include "table-products.php";
 														 ?>
@@ -92,6 +92,8 @@ $page = "products";
     </div>
     
 </body>
+<!--  My script    -->
+<script src="/js/script.js"></script>
 <!--   Core JS Files   -->
 <script src="assets/js/core/jquery.3.2.1.min.js" type="text/javascript"></script>
 <script src="assets/js/core/popper.min.js" type="text/javascript"></script>
@@ -117,5 +119,6 @@ $page = "products";
 
     });
 </script>
+
 
 </html>

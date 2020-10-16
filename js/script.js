@@ -1,13 +1,10 @@
-// var addProductForm = document.querySelector("#add-product-form");
-// addProductForm.onsubmit = function(e){
-// 	e.preventDefault();
-// 	cloth-name
-// 	var clothName = addProductForm.querySelector("input[name='cloth-name']");
-// 	var clothCategory = addProductForm.querySelector("input[name='cloth-category']");
-// 	var clothImg = addProductForm.querySelector("input[name='cloth-img']");
-// 	var clothTitle = addProductForm.querySelector("input[name='cloth-title']");
-// 	var clothDesc = addProductForm.querySelector("input[name='cloth-description']");
+function deleteProduct(element){
 
-// 	var addRequest = new XMLHttpRequest();
+	var addRequest = new XMLHttpRequest();
+		 addRequest.open("GET", element.dataset.link, false);
+		 addRequest.send();
 
-// }
+	var table = document.querySelector("#table-body");
+		 table.innerHTML = addRequest.response;
+
+}

@@ -12,7 +12,7 @@
 		<td>
 		<div class="btn-group mr-2" role="group" aria-label="First group">
 			<a href="options/products/edit.php?id=<?php echo $row["id"] ?>" type="button" class="btn btn-secondary">Edit</a>
-			<a href="options/products/delete.php?id=<?php echo $row["id"] ?>" type="button" class="btn btn-secondary">Delete</a>
+			<div data-link="http://store.local/admin/options/products/delete.php?id=<?php echo $row["id"] ?>" onclick="deleteProduct(this)" id="delete-btn" type="button" class="btn btn-secondary">Delete</div>
 		</div>
 		</td>
 		</tr>
