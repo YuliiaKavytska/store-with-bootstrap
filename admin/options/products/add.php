@@ -1,10 +1,20 @@
 <?php 
 include $_SERVER['DOCUMENT_ROOT'] . "/configs/db.php";
-$page = "add";
-?>
+$page = "products";
 
-<?php
-    include $_SERVER['DOCUMENT_ROOT'] . "/admin/parts/head.php";
+include $_SERVER['DOCUMENT_ROOT'] . "/admin/parts/head.php";
+
+if(isset($_POST["add-product"])){
+    $addSql = "INSERT INTO products (title, description, content, category_id, image) VALUES ('" . 
+    $_POST["cloth-name"] . "', '" . 
+    $_POST["cloth-title"] . "', '" . 
+    $_POST["cloth-description"] . "', '" . 
+    $_POST["cloth-category"] . "', '" . 
+    $_POST["cloth-img"] . "')";
+    if(mysqli_query($connect, $addSql)){
+        header("Location: /admin/products.php");
+    }
+}
 ?>
 
 <div class="row">
@@ -14,7 +24,7 @@ $page = "add";
                 <h4 class="card-title">Add one new clothe</h4>
             </div>
             <div class="card-body">
-                <form method="POST" action="/admin/options/products/add-product.php" id="add-product-form">
+                <form method="POST" action="/admin/options/products/add.php" id="add-product-form">
                     <div class="row">
                         <div class="col-md-5 pr-1">
                             <div class="form-group">
@@ -27,11 +37,14 @@ $page = "add";
                                 <label>Category of product</label>
                                 <!-- <input type="text" class="form-control" name="cloth-category" placeholder="1"> -->
                                 <select name="cloth-category" class="form-control" id="exampleFormControlSelect1">
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
+                                    <option value="0">Dont select</option>
+                                    <?php
+                                    $categorySql = "SELECT * FROM  category";
+                                    $categoryResult = $connect->query($categorySql);
+                                    while($row = mysqli_fetch_assoc($categoryResult)){
+                                        echo "<option value=" . $row["id"] . ">" . $row["title"] . "</option>";
+                                    }
+                                    ?>
                                 </select>
                             </div>
                         </div>

@@ -1,19 +1,25 @@
 <?php 
 include $_SERVER['DOCUMENT_ROOT'] . "/configs/db.php";
-$page = "add";
-?>
+$page = "products";
 
-<?php
-    include $_SERVER['DOCUMENT_ROOT'] . "/admin/parts/head.php";
-?>
+include $_SERVER['DOCUMENT_ROOT'] . "/admin/parts/head.php";
 
-
-<?php 
 if(isset($_GET)){
         $findSql = "SELECT * FROM products WHERE id = " . $_GET["id"];
         $findResult = mysqli_query($connect, $findSql);
         $product = mysqli_fetch_assoc($findResult);
+}
+if(isset($_POST["edit-product"])){
+    $updateSql = "UPDATE products SET title = '" . $_POST["cloth-name"] . 
+    "', description = '" . $_POST["cloth-title"] . 
+    "', content = '" . $_POST["cloth-description"] . 
+    "', category_id = '" . $_POST["cloth-category"] . 
+    "', image = '" . $_POST["cloth-img"] . 
+    "' WHERE products.id = " . $_POST["cloth-id"];
+    if(mysqli_query($connect, $updateSql)){
+        header("Location: /admin/products.php");
     }
+}
 ?>
 <div class="row">
     <div class="col-md-12">
@@ -22,7 +28,7 @@ if(isset($_GET)){
                 <h4 class="card-title">Edit clothe</h4>
             </div>
             <div class="card-body">
-                <form method="POST" action="/admin/options/products/edit-product.php" id="edit-product-form">
+                <form method="POST" action="/admin/options/products/edit.php" id="edit-product-form">
                     <div class="row">
                         <div class="col-md-5 pr-1">
                             <div class="form-group">
@@ -34,7 +40,21 @@ if(isset($_GET)){
                         <div class="col-md-2 px-1">
                             <div class="form-group">
                                 <label>Category of product</label>
-                                <input type="text" class="form-control" value="<?php echo $product["category_id"]?>" name="cloth-category" placeholder="1">
+                                <select name="cloth-category" class="form-control" id="exampleFormControlSelect1">
+                                <?php
+                                    $categorySql = "SELECT * FROM  category";
+                                    $categoryResult = $connect->query($categorySql);
+                                    $productCategory = "SELECT * FROM  category WHERE id=" . $product["category_id"];
+                                    $prodCategResult = mysqli_query($connect, $productCategory);
+                                    $category = mysqli_fetch_assoc($prodCategResult);
+                                ?>
+                                    <option value="<?php echo $product["category_id"]?>"><?php echo $category["title"]?></option>
+                                    <?php    
+                                    while($row = mysqli_fetch_assoc($categoryResult)){
+                                        echo "<option value=" . $row["id"] . ">" . $row["title"] . "</option>";
+                                    }
+                                    ?>
+                                </select>
                             </div>
                         </div>
                         <div class="col-md-5 pl-1">

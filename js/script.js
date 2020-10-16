@@ -8,3 +8,4 @@ function deleteProduct(element){
 		 table.innerHTML = addRequest.response;
 
 }
+

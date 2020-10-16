@@ -1,6 +1,6 @@
 <?php 
 include $_SERVER['DOCUMENT_ROOT'] . "/configs/db.php";
-$page = "products";
+$page = "catigories";
 ?>
 
 <?php
@@ -13,7 +13,7 @@ $page = "products";
             <div class="card-header ">
                 <h4 class="card-title ">
                 Category
-                <a href="options/products/add.php" class="btn btn-success">Add</a></h4>
+                <a href="options/category/add.php" class="btn btn-success">Add</a></h4>
             </div>
             <div class="card-body table-full-width table-responsive">
                 <table class="table table-hover table-striped">

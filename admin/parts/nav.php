@@ -11,7 +11,7 @@
 				<p>Users</p>
 		</a>
 	</li>
-	<li <?php if($page == "products" || $page == "add" || $page == "edit"){ echo "class='nav-item active'"; }?>>
+	<li <?php if($page == "products"){ echo "class='nav-item active'"; }?>>
 		<a class="nav-link" href="/admin/products.php">
 				<i class="nc-icon nc-tag-content"></i>
 				<p>Products</p>
