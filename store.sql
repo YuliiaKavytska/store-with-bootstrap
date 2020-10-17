@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Окт 16 2020 г., 11:17
+-- Время создания: Окт 17 2020 г., 16:11
 -- Версия сервера: 10.4.14-MariaDB
 -- Версия PHP: 7.4.10
 
@@ -32,6 +32,17 @@ CREATE TABLE `category` (
   `title` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Дамп данных таблицы `category`
+--
+
+INSERT INTO `category` (`id`, `title`) VALUES
+(1, 'Брюки'),
+(2, 'Джинсы'),
+(10, 'Футболки'),
+(11, 'Шапки'),
+(12, 'Перчатки');
+
 -- --------------------------------------------------------
 
 --
@@ -52,10 +63,11 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `title`, `description`, `content`, `category_id`, `image`) VALUES
-(1, 'Штаны', 'Катоновые штаны', 'Катоновые женские штаны на резинке', 1, 'img/1.jpg'),
-(2, 'Футболка', 'Красная футболка', 'Красная футболка на флисе', 2, 'img/2.jpg'),
-(3, '1', '1', '1', 1, '1'),
-(8, '223', '22', '22', 22, '22');
+(1, 'брюки', 'Катоновые брюки.', 'Катоновые женские брюки на резинке. Приятные на ощпь и носятся 100 лет. Цвет хаки', 1, 'img/1.jpg'),
+(2, 'Футболка', 'зеленая футболка', 'зеденая футболка на флисе', 10, 'img/2.jpg'),
+(12, 'футболка', 'красная футболка', 'катоновая красная ', 10, '2'),
+(17, 'шапка', 'шапка из шерсти', 'теплая шапка', 11, 'вв'),
+(18, 'перчатки кожаные', 'перчатки из кожи', 'теплые, мягки кожаные перчатки', 12, '');
 
 --
 -- Индексы сохранённых таблиц
@@ -81,13 +93,13 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT для таблицы `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT для таблицы `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

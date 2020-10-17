@@ -7,6 +7,17 @@ $page = "products";
     include $_SERVER['DOCUMENT_ROOT'] . "/admin/parts/head.php";
 ?>
 
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item">
+	 	<a href="/admin">Home</a>
+	 </li>
+    <li class="breadcrumb-item active" aria-current="page">Products</li>
+  </ol>
+</nav>
+
+
+
 <div class="row">
     <div class="col-md-12">
         <div class="card strpied-tabled-with-hover">
@@ -37,7 +48,7 @@ $page = "products";
 </div>
 
 <!--  My script    -->
-<script src="../js/script.js"></script>
+<script src="../assets/js/script.js"></script>
 <?php
     include "parts/footer.php";
 ?>

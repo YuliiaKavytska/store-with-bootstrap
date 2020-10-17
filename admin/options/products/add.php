@@ -17,6 +17,18 @@ if(isset($_POST["add-product"])){
 }
 ?>
 
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item">
+	 	<a href="/">Home</a>
+	 </li>
+    <li class="breadcrumb-item">
+	 	<a href='/admin/products.php'>Product</a>
+	 </li>
+    <li class="breadcrumb-item active" aria-current="page">Add product</li>
+  </ol>
+</nav>
+
 <div class="row">
     <div class="col-md-12">
         <div class="card">
