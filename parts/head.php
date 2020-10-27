@@ -27,16 +27,19 @@
         <a class="nav-link" href="/pages/contacts.php">Contacts</a>
       </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
+    <!-- <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
+    </form> -->
 	 
 	<div class="my-lg-0 ml-4">
+	<a class="nav-link btn btn-success" href="/pages/basket.php">Go to the basket</a>
+	</div>
+	<div class="my-lg-0 ml-4">
 		<a class="no-text-decoration grey-link" href="#">
-			<img src="/img/basket.png" class=" ml-1" alt="..." style="width:32px;">
+			<img src="/img/basket.png" class=" ml-3" alt="..." style="width:32px;">
 			<div class="cart-item">
-				<span class="display-6">Basket</span>
+				<span class="display-6">Basket - </span><span id="count-basket">0</span>
 			</div>
 		</a>
 	</div>
