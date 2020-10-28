@@ -10,7 +10,7 @@
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Cloth Store</a>
+  <a class="navbar-brand" href="/">Cloth Store</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -36,7 +36,7 @@
 	<a class="nav-link btn btn-success" href="/pages/basket.php">Go to the basket</a>
 	</div>
 	<div class="my-lg-0 ml-4">
-		<a class="no-text-decoration grey-link" href="#">
+		<a class="no-text-decoration grey-link" href="/pages/basket.php">
 			<img src="/img/basket.png" class=" ml-3" alt="..." style="width:32px;">
 			<div class="cart-item">
 				<span class="display-6">Basket - </span><span id="count-basket">0</span>

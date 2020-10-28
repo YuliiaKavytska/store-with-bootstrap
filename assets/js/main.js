@@ -66,16 +66,18 @@ function clickAddToBasket(){
 			// сделать запрос на добавление в корзну
 			// получить данніе об успешном добавлении
 			// обновить информацию о корзине
-			console.dir(link);
+			
 			var ajaxBasket = new XMLHttpRequest();
-			ajaxBasket.open("POST", siteUrl + "modules/basket/add-basket.php?", false);
-			ajaxBasket.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-			ajaxBasket.send("id=" + link.dataset.id);
+				 ajaxBasket.open("POST", siteUrl + "modules/basket/add-basket.php", false);
+				 ajaxBasket.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+				 ajaxBasket.send("id=" + link.dataset.id);
+
+			console.dir(ajaxBasket);
+			// декодировать джейсто строку чтобі получить чистій джейсон объект
+			var response = JSON.parse(ajaxBasket.response);
 			var countBasket = document.querySelector("#count-basket");
-			countBasket.innerText = Number(countBasket.innerText) + 1;
-			console.log(ajaxBasket);
+				 countBasket.innerText = response.quantity;
 		}
 	});
 }
 clickAddToBasket();
-

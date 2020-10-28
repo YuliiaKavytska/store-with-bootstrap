@@ -34,7 +34,7 @@ include "parts/head.php";
 	// 	отобразить что товар добавился на корзине
 	// сделать страницу корзины
 	// сделать оформление заказа
-	var_dump($_COOKIE);
+
 ?>
 <div class="row mb-4 justify-content-center">
 		<input type="hidden" name="number" id="number-page" value="1">
