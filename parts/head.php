@@ -38,9 +38,20 @@
 	<div class="my-lg-0 ml-4">
 		<a class="no-text-decoration grey-link" href="/pages/basket.php">
 			<img src="/img/basket.png" class=" ml-3" alt="..." style="width:32px;">
+			<?php
+			$quant = 0;
+			if(isset($_COOKIE['basket'])){
+				// создаем обект типа джейсон который хранит в себемассив, с плем количество для того чтобы считать сколько товаров добавлено в корзину с помощью джс
+				$basket = json_decode($_COOKIE["basket"], true);
+				$quant = 0;
+				for($i = 0; $i < count($basket["basket"]); $i++){
+					$quant += $basket["basket"][$i]["count"];
+				}
+			}
+			?>
 			<div class="cart-item">
-				<span class="display-6">Basket - </span><span id="count-basket">0</span>
-			</div>
+			<span class="display-6">Basket - </span><span id="count-basket"><?php echo $quant; ?></span>
+		</div>
 		</a>
 	</div>
 

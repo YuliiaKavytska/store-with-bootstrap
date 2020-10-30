@@ -22,12 +22,36 @@
 		if(isset($_COOKIE['basket'])){
 			// декодируем наши куки в масив.
 			$addToBasket = json_decode($_COOKIE['basket'], true);
-			// обращаемся к массиву бакет и добавляем новый объект в конец масива
-			$addToBasket["basket"][] = $product["id"];
+			
+			/*
+			1. Пройтись по массиву товаров в корзине
+			2. Проверить есть ли совпадение
+			3. Если есть совпадение, увеличить количество товаров.
+			*/
+			$productIsFound = 0;
+			for($i = 0; $i < count($addToBasket["basket"]); $i++){
+				if($addToBasket["basket"][$i]["product_id"] == $product["id"]){
+					$addToBasket["basket"][$i]["count"]++;
+					$productIsFound = 1;
+				}
+			}
+
+			if($productIsFound != 1){
+				// обращаемся к массиву бакет и добавляем новый объект в конец масива
+				$addToBasket["basket"][] = [
+				"product_id" => $product["id"],
+				"count" => 1
+			];
+			}
+			
+
 			// не существует куки:
 		}else{
 			// создаем массив с полем баскет и в его массив записываем объект
-			$addToBasket = ["basket" => [$product["id"]]];
+			$addToBasket = ["basket" => [[
+				"product_id" => $product["id"],
+				"count" => 1]
+				]];
 		}
 		//преобразовуем масиив в обект джейсон, после того как мы добавили все в обычный массив
 		$productCookie = json_encode($addToBasket); 
@@ -36,10 +60,7 @@
 		// создаем куку с объектом типа джейсон который содержит 
 		// в себе объект баскет у которого есть внутренний массив, в котором хранятся объекты. тоесть наши товары
 		setcookie("basket", $productCookie, time() + 60*60, "/");
-		// создаем обект типа джейсон который хранит в себемассив, с плем количество для того чтобы считать сколько товаров добавлено в корзину с помощью джс
-		echo json_encode([
-			"quantity" => count($addToBasket['basket'])
-		]);
+		
 	}
 	
 	
