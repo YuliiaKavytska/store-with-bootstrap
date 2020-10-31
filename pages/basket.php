@@ -4,16 +4,6 @@ include $_SERVER['DOCUMENT_ROOT'] . "/parts/head.php";
 
 ?>
 
-<?php
-	// проверяем существует ли запрос, если да, добавляем в базу заказ
-	if(isset($_POST["create"])){
-		$createOrderSql = "INSERT INTO orders (user, stuff, address, phone) VALUES ('" . $_POST["user"] . "', '" . $_POST["stuffs"] . "', '" . $_POST["address"] . "', '" . $_POST["phone"] . "')";
-		mysqli_query($connect, $createOrderSql);
-		// после добавления в базу данных, очищаем куку. и обновляем эту страницу
-		setcookie("basket", "", 0, "/");
-		header("Location: /pages/basket.php");
-	}
-?>
 <h2 class="mb-4 text-center">Ваши заказы:</h2>
 
 		<?php
@@ -56,13 +46,14 @@ include $_SERVER['DOCUMENT_ROOT'] . "/parts/head.php";
 								<th scope="col">#</th>
 								<th scope="col">Title</th>
 								<th scope="col">Quantity</th>
+								<th scope="col">Sum</th>
 								<th scope="col" class="text-center">Options</th>
 							</tr>
 						</thead>
 						<tbody>
 					<?php
 					// создаем строку в которую будем записывать наш заказ.
-					$c = "";
+					// $c = "";
 					for ($i = 0; $i < count($basket["basket"]); $i++){
 						// делаем запрос в базу даннх чтобы получить товар с айди который равен нашему ключу
 						$findProductSql = "SELECT * FROM products WHERE id=" . $basket["basket"][$i]["product_id"];
@@ -72,26 +63,34 @@ include $_SERVER['DOCUMENT_ROOT'] . "/parts/head.php";
 						<tr>
 							<th scope="row"><?php echo $i+1 ?></th>
 							<td><?php echo $product["title"] ?></td>
-							<td><?php echo $basket["basket"][$i]["count"] ?></td>
+							<td><input class="quantity" type="number" min="0" value="<?php echo $basket["basket"][$i]["count"] ?>" data-id="<?php echo $product['id'] ?>" data-price="<?php echo $product['price'] ?>"></td>
+							<td class="grn"><?php echo $product['price'] * $basket["basket"][$i]["count"] ?></td>
 							<td><button type="button" class="btn btn-danger w-100" onclick="deleteProductBasket(this, <?php echo $product['id'] . ', ' . $basket['basket'][$i]['count']; ?>)">Delete</button></td>
 						</tr>
 						<?php
 						// записываю в строку наш заказ
-						$c = $c . $product["title"] . " " . $basket["basket"][$i]["count"] . " шт; ";
+						// $c = $c . $product["title"] . " " . $basket["basket"][$i]["count"] . " шт; ";
 					}
 				?>
+					<tr>
+						<th scope="row">Сумма</th>
+						<td></td>
+						<td id="quant-stuff">0</td>
+						<td id="sum-price">0</td>
+						<td></td>
+						</tr>
 					</tbody>
 				</table>
 
 				<!-- создаем отправку -->
 				<h2 class="mb-4 text-center">Оформление заказа:</h2>
 
-				<form method="POST">
+				<form method="POST" action="/modules/basket/order.php">
 				<div class="form-group row">
 					<label for="staticEmail" class="col-sm-2 col-form-label">Ваше ФИО:</label>
 					<div class="col-sm-10">
 						<input type="text" name="user" class="form-control" id="inputPassword">
-						<input type="hidden" name="stuffs" value="<?php echo $c ?>">
+						<!-- <input type="hidden" name="stuffs" value="<?php echo $c ?>"> -->
 					</div>
 				</div>
 				<div class="form-group row">

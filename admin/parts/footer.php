@@ -19,5 +19,4 @@
 <script src="/admin/assets/js/light-bootstrap-dashboard.js?v=2.0.0 " type="text/javascript"></script>
 <!-- Light Bootstrap Dashboard DEMO methods, don't include it in your project! -->
 <script src="/admin/assets/js/demo.js"></script>
-
 </html>

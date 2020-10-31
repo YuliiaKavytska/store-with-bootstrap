@@ -12,9 +12,13 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
     <!-- CSS Files -->
     <link href="/admin/assets/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="/admin/assets/css/light-bootstrap-dashboard.css?v=2.0.0 " rel="stylesheet" />
+    <link href="/admin/assets/css/light-bootstrap-dashboard.css?v=1.4.0" rel="stylesheet"/>
+    <link href="/admin/assets/css/animate.min.css" rel="stylesheet"/>
+
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link href="/admin/assets/css/demo.css" rel="stylesheet" />
+    <link href="/admin/assets/css/icon.css" rel="stylesheet" />
+
 </head>
 
 <body>

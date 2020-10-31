@@ -62,6 +62,4 @@
 		setcookie("basket", $productCookie, time() + 60*60, "/");
 		
 	}
-	
-	
 ?>

@@ -100,4 +100,37 @@ function deleteProductBasket(obj, id, quant){
 	// перезаписываем количество товаров на корзине
 	var countBasket = document.querySelector("#count-basket");
 		 countBasket.innerText = Number(countBasket.innerText) - quant;
+	count();
+}
+
+document.querySelectorAll(".quantity").forEach(function(input){
+	count();
+	input.oninput = function(){
+		var quantity = Number(input.value);
+		var price = Number(input.dataset.price);
+		var id = input.dataset.id;
+
+		var request = new XMLHttpRequest();
+			 request.open("POST", siteUrl + "modules/basket/edit-quantity.php", false);
+			 request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+			 request.send("id=" + id + "&quantity=" + quantity);
+		input.parentNode.nextElementSibling.innerText = quantity * price;
+		count();
+	}
+});
+
+var quanBasket = 0;
+var sum = 0;
+function count(){
+	quanBasket = 0;
+	sum = 0;
+	document.querySelectorAll(".quantity").forEach(function(i){
+		quanBasket += Number(i.value);
+		sum += Number(i.parentNode.nextElementSibling.innerText);
+	});
+
+	document.querySelector("#sum-price").innerText = sum  + " грн.";
+	document.querySelector("#quant-stuff").innerText = quanBasket  + " шт.";
+	var countBasket = document.querySelector("#count-basket");
+		 countBasket.innerText = quanBasket;
 }
