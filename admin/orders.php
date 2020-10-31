@@ -19,8 +19,8 @@ $page = "orders";
 </nav>
 
 <?php
-	$i = mysqli_num_rows($result);
-	while($i > 0){
+	$i = 0;
+	while($i < mysqli_num_rows($result)){
 		$order = mysqli_fetch_assoc($result);
 		$userSql = "SELECT * FROM users WHERE id=" . $order["user_id"];
 		$userResult = mysqli_query($connect, $userSql);
@@ -29,12 +29,14 @@ $page = "orders";
 		$c = "";
 		$sum = 0;
 		$orderThings = json_decode($order["stuff"], true);
+		
 		while($j < count($orderThings["basket"])){
-			$findProductSql = "SELECT * FROM products WHERE id=" . $orderThings["basket"][$i - 1]["product_id"];
+			
+			$findProductSql = "SELECT * FROM products WHERE id=" . $orderThings["basket"][$j]["product_id"];
 			$findProductResult = mysqli_query($connect, $findProductSql);
 			$productFind = mysqli_fetch_assoc($findProductResult);
-			$c = $c . $productFind["title"] . " " . $orderThings["basket"][$i - 1]["count"] . " шт.";
-			$sum += $productFind["price"] * $orderThings["basket"][$i - 1]["count"];
+			$c = $c . $productFind["title"] . " " . $orderThings["basket"][$j]["count"] . " шт.";
+			$sum += $productFind["price"] * $orderThings["basket"][$j]["count"];
 			$j++;
 		}
 		$c = $c . ". Общая сумма заказа: " . $sum . "грн.";
@@ -105,7 +107,7 @@ $page = "orders";
     </div>
 </div>
 <?php
-	$i--;
+	$i++;
 	}
 
 ?>

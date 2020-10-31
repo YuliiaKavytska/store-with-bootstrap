@@ -25,7 +25,7 @@
 			}
 		}
 
-		$createOrderSql = "INSERT INTO orders (user_id, stuff, address, phone) VALUES ('" . $user_id . "', '" . $_COOKIE["basket"] . "', '" . $_POST["address"] . "', '" . $_POST["phone"] . "')";
+		$createOrderSql = "INSERT INTO orders (user_id, stuff, address, status) VALUES ('" . $user_id . "', '" . $_COOKIE["basket"] . "', '" . $_POST["address"] . "', 'Новый')";
 		if(mysqli_query($connect, $createOrderSql)){
 			// после добавления в базу данных, очищаем куку. и обновляем эту страницу
 			setcookie("basket", "", 0, "/");
