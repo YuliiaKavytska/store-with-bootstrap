@@ -26,6 +26,12 @@
       <li class="nav-item <?php if($page == "contacts"){ echo "active"; }?>">
         <a class="nav-link" href="/pages/contacts.php">Contacts</a>
       </li>
+      <li class="nav-item <?php if($page == "reg"){ echo "active"; }?>">
+        <a class="nav-link" href="/registration.php">Registration</a>
+      </li>
+      <li class="nav-item <?php if($page == "log"){ echo "active"; }?>">
+        <a class="nav-link" href="/log-in.php">Log In</a>
+      </li>
     </ul>
     <!-- <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
