@@ -1,4 +1,5 @@
 var btnShowMore = document.querySelector('#show-more');
+// var siteUrl = "http://store-master.zzz.com.ua/";
 var siteUrl = "http://store.local/";
 var numberPageInput = document.querySelector('#number-page');
 if(btnShowMore){

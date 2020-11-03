@@ -1,4 +1,4 @@
-var siteUrl = "http://store.local/admin/";
+var siteUrl = "http://store-master.zzz.com.ua/admin/";
 document.querySelectorAll(".status-change").forEach(function(select){
 	select.oninput = function(){
 		var ajax = new XMLHttpRequest();

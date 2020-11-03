@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 31, 2020 at 07:01 PM
+-- Generation Time: Nov 03, 2020 at 08:00 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.10
 
@@ -141,19 +141,27 @@ CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `login` varchar(255) NOT NULL,
   `phone` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL
+  `email` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `confirm_mail` varchar(255) NOT NULL,
+  `verifided` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `login`, `phone`, `email`) VALUES
-(1, '1', '0935951018', ''),
-(3, 'Борщагівська 146', '0935951019', ''),
-(9, 'Борщагівська 146', '0935951021', ''),
-(10, 'Юлия', '0935951020', ''),
-(11, 'Имя Имя', '0935953456', '');
+INSERT INTO `users` (`id`, `login`, `phone`, `email`, `password`, `confirm_mail`, `verifided`) VALUES
+(1, '1', '0935951018', '', '', '', 0),
+(3, 'Борщагівська 146', '0935951019', '', '', '', 0),
+(9, 'Борщагівська 146', '0935951021', '', '', '', 0),
+(10, 'Юлия', '0935951020', '', '', '', 0),
+(11, 'Имя Имя', '0935953456', '', '', '', 0),
+(39, 'yuliia_kavytskaya', '', 'julia.k106.l7@gmail.com', '96e79218965eb72c92a549dd5a330112', 'myAM7t6pOA2UWYRjqPF9', 1),
+(41, 'yuliia', '', 'jul6.l7@gmail.com', '202cb962ac59075b964b07152d234b70', 'lQxJ49fqFsAfvKAzHktV', 1),
+(42, '111', '', 'n@n.n', 'c4ca4238a0b923820dcc509a6f75849b', 'njaobPEKP8lfHJ8w52vV', 1),
+(43, '1111111', '', 'i@i.i', 'c4ca4238a0b923820dcc509a6f75849b', 'H3gcr0FMTBWZdmm86HPh', 1),
+(44, 'yuliia_kavytskaya', '', 'g@g.g', 'c4ca4238a0b923820dcc509a6f75849b', 'D1ZbPLhvbNvKw4otdqnN', 0);
 
 --
 -- Indexes for dumped tables
@@ -209,7 +217,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
